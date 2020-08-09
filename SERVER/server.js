@@ -41,7 +41,7 @@ app.delete('/usuario', function(req, res) {
     res.json('DELETE Usuario')
 });
 
-mongoose.connect('mongodb://localhost:27017/MTADB', (err, res) => {
+mongoose.connect('mongodb://localhost:27017/cafe', (err, res) => {
     if (err) throw err;
     console.log('Base de datos OnLine!!');
 });
