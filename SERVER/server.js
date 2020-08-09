@@ -51,6 +51,7 @@ mongoose.connect('mongodb://localhost:27017/MetallicACoffe', {
     useUnifiedTopology: true
 }, (err) => {
     if (err) throw err;
+    console.log('Base de datos OnLine!!');
 });
 
 app.listen(process.env.PORT, () => {
