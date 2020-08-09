@@ -13,5 +13,20 @@ let userSchema = new Schema({
     password: {
         type: String,
         required: [true, 'La Contraseña es requerida!']
+    },
+    img: {
+        type: String,
+        required: false
+    },
+    role: {
+        default: 'USER_ROLE'
+    },
+    status: {
+        type: Boolean,
+        default: true
+    },
+    google: {
+        type: Boolean,
+        default: false
     }
 });
