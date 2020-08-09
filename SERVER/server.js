@@ -41,9 +41,16 @@ app.delete('/usuario', function(req, res) {
     res.json('DELETE Usuario')
 });
 
-mongoose.connect('mongodb://localhost:27017/MetallicACoffe', (err, res) => {
+//mongoose.connect('mongodb://localhost:27017/MetallicACoffe', (err, res) => {
+//    if (err) throw err;
+//    console.log('Base de datos OnLine!!');
+//});
+
+mongoose.connect('mongodb://localhost:27017/MetallicACoffe', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}, (err) => {
     if (err) throw err;
-    console.log('Base de datos OnLine!!');
 });
 
 app.listen(process.env.PORT, () => {
