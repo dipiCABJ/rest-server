@@ -1,4 +1,6 @@
 const express = require('express');
+const Usuario = require('../MODELS/user');
+
 const app = express();
 
 
