@@ -19,7 +19,8 @@ let userSchema = new Schema({
         required: false
     },
     role: {
-        //default: 'USER_ROLE'
+        type: String,
+        default: 'USER_ROLE'
     },
     status: {
         type: Boolean,
