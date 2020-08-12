@@ -31,7 +31,7 @@ app.post('/usuario', function(req, res) {
         });
     })
 
-    if (body.name === undefined) {
+    /*if (body.name === undefined) {
         res.status(400).json({
             error: true,
             message: 'El nombre es requerido'
@@ -41,6 +41,7 @@ app.post('/usuario', function(req, res) {
             body
         });
     }
+    */
 });
 
 app.put('/usuario/:id', function(req, res) {
