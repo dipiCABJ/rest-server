@@ -8,6 +8,7 @@ let userSchema = new Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: [true, 'El email es requerido!']
     },
     password: {

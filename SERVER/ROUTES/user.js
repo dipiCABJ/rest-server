@@ -30,18 +30,6 @@ app.post('/usuario', function(req, res) {
             usr: userDB
         });
     })
-
-    /*if (body.name === undefined) {
-        res.status(400).json({
-            error: true,
-            message: 'El nombre es requerido'
-        })
-    } else {
-        res.json({
-            body
-        });
-    }
-    */
 });
 
 app.put('/usuario/:id', function(req, res) {
