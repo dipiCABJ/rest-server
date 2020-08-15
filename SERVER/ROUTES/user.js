@@ -35,11 +35,21 @@ app.post('/usuario', function(req, res) {
 
 app.put('/usuario/:id', function(req, res) {
     let id = req.params.id;
-    res.json({
-        id,
-        nombre: 'Oriana',
-        apellido: 'Dipietro'
-    })
+    let body = req.body
+
+    User.findByIdAndUpdate(id, body, (err, userBD) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+        res.json({
+            ok: true,
+            user: userDB
+        })
+
+    });
 });
 
 app.delete('/usuario', function(req, res) {
