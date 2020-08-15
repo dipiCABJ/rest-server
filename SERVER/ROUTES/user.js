@@ -37,7 +37,7 @@ app.put('/usuario/:id', function(req, res) {
     let id = req.params.id;
     let body = req.body
 
-    User.findByIdAndUpdate(id, body, (err, userDB) => {
+    User.findByIdAndUpdate(id, body, { new: true }, (err, userDB) => {
         if (err) {
             return res.status(400).json({
                 ok: false,
