@@ -16,7 +16,7 @@ app.get('/usuario', function(req, res) {
 
     User.find({})
         .skip(from)
-        .limit(5)
+        .limit(limit)
         .exec((err, users) => {
             if (err) {
                 return res.status(400).json({
