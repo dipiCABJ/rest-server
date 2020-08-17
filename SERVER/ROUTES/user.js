@@ -9,7 +9,7 @@ const app = express();
 app.get('/usuario', function(req, res) {
 
     let from = req.query.from || 0;
-    let limit = req.query.limit || 0;
+    let limit = req.query.limit || 5;
     from = Number(from);
     limit = Number(limit);
 
