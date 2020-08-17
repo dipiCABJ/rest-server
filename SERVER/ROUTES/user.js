@@ -24,10 +24,18 @@ app.get('/usuario', function(req, res) {
                     err
                 });
             }
-            res.json({
-                ok: true,
-                users
-            });
+            User.count({}, (err, count) => {
+                //if (err) {
+                //    return res.status(400).json({
+                //       ok: false,
+                //        err
+                //    });
+                res.json({
+                    ok: true,
+                    users,
+                    count
+                });
+            })
         })
         //res.json('GET Usuario LOCAL!!')
 });
