@@ -7,8 +7,12 @@ const app = express();
 
 
 app.get('/usuario', function(req, res) {
+
+    let from = req.query.from || 0;
+    from = Number(from)
     User.find({})
-        .limit(7)
+        .skip(from)
+        .limit(5)
         .exec((err, users) => {
             if (err) {
                 return res.status(400).json({
