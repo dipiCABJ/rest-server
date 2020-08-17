@@ -7,7 +7,20 @@ const app = express();
 
 
 app.get('/usuario', function(req, res) {
-    res.json('GET Usuario LOCAL!!')
+    User.find({})
+        .exec((err, users) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                });
+            }
+            res.json({
+                ok: true,
+                users
+            });
+        })
+        //res.json('GET Usuario LOCAL!!')
 });
 
 app.post('/usuario', function(req, res) {
