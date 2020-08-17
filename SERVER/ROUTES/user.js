@@ -8,6 +8,7 @@ const app = express();
 
 app.get('/usuario', function(req, res) {
     User.find({})
+        .limit(7)
         .exec((err, users) => {
             if (err) {
                 return res.status(400).json({
