@@ -10,12 +10,12 @@ app.get('/usuario', function(req, res) {
 
     let from = req.query.from || 0;
     let limit = req.query.limit || 5;
-    let status = req.query.status || true;
+    //let status = req.query.status || true;
     from = Number(from);
     limit = Number(limit);
 
 
-    User.find({ status: status })
+    User.find({ status: false })
         .skip(from)
         .limit(limit)
         .exec((err, users) => {
@@ -25,7 +25,7 @@ app.get('/usuario', function(req, res) {
                     err
                 });
             }
-            User.count({ status: status }, (err, count) => {
+            User.count({ status: false }, (err, count) => {
                 //if (err) {
                 //    return res.status(400).json({
                 //       ok: false,
