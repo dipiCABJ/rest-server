@@ -84,8 +84,21 @@ app.put('/usuario/:id', function(req, res) {
     });
 });
 
-app.delete('/usuario', function(req, res) {
-    res.json('DELETE Usuario')
+app.delete('/usuario/:id', function(req, res) {
+    //res.json('DELETE Usuario');
+    let id = req.params.id;
+    User.findByIdAndRemove(id, (err, deleted) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+        res.json({
+            ok: true,
+            deleted
+        })
+    });
 });
 
 module.exports = app;
