@@ -80,13 +80,35 @@ app.put('/usuario/:id', function(req, res) {
             ok: true,
             user: userDB
         })
-
     });
 });
 
 app.delete('/usuario/:id', function(req, res) {
     //res.json('DELETE Usuario');
+
     let id = req.params.id;
+    let field = _.pick(req.body, ['name', 'email', 'img', 'role', 'status']);
+    User.findByIdAndUpdate(id, field, { new: true }, (err, deleted) => {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+        if (!deleted) {
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: 'Usuario inexistente!'
+                }
+            });
+        }
+        res.json({
+            ok: true,
+            deleted
+        });
+    });
+    /*let id = req.params.id;
     User.findByIdAndRemove(id, (err, deleted) => {
         if (err) {
             return res.status(400).json({
@@ -106,7 +128,7 @@ app.delete('/usuario/:id', function(req, res) {
             ok: true,
             deleted
         })
-    });
+    });*/
 });
 
 module.exports = app;
