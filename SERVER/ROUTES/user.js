@@ -94,6 +94,14 @@ app.delete('/usuario/:id', function(req, res) {
                 err
             });
         }
+        if (deleted === null) {
+            return res.status(400).json({
+                ok: false,
+                err: {
+                    message: 'Usuario inexistente!'
+                }
+            });
+        }
         res.json({
             ok: true,
             deleted
