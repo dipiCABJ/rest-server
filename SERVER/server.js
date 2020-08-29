@@ -16,7 +16,7 @@ app.use(require('./ROUTES/user.js'));
 //    console.log('Base de datos OnLine!!');
 //});
 
-mongoose.connect('mongodb://localhost:27017/MetallicACoffe', {
+mongoose.connect(process.env.URL_DB, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true
