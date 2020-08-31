@@ -7,7 +7,7 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/MetallicACoffe';
 } else {
-    urlDB = 'mongodb+srv://hezbollah:eTjSK24ar5aigk5G@cluster0.1zx8u.mongodb.net/MetallicACoffe'
+    urlDB = process.env.MONGO_URL;
 }
 
 process.env.URL_DB = urlDB;
